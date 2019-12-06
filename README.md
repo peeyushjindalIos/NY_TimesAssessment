@@ -2,6 +2,7 @@
 
 # Running the Project
 1.Open NY_Times.xcodeproj in Xcode
+
 2.Build and run!
 
 # Dependecies
