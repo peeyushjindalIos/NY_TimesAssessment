@@ -14,9 +14,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="Qdj-kY-Gfl">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3np-uk-P3e">
+                                    <rect key="frame" x="8" y="7" width="349" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <segments>
+                                        <segment title="One Day"/>
+                                        <segment title="7 Day"/>
+                                        <segment title="30 day"/>
+                                    </segments>
+                                    <connections>
+                                        <action selector="segmentedControlButtonClickAction:" destination="ecO-bt-Bcf" eventType="valueChanged" id="OtV-Xd-9Sr"/>
+                                    </connections>
+                                </segmentedControl>
+                            </subviews>
+                            <color key="backgroundColor" red="1" green="0.58431372550000005" blue="0.0" alpha="0.88797624143835618" colorSpace="custom" customColorSpace="sRGB"/>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="reuseIdentifier" rowHeight="146" id="Frn-kt-mda">
-                                <rect key="frame" x="0.0" y="28" width="375" height="146"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="146"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Frn-kt-mda" id="aCq-U8-WXy">
                                     <rect key="frame" x="0.0" y="0.0" width="348" height="146"/>
@@ -111,12 +130,24 @@
                             <outlet property="delegate" destination="ecO-bt-Bcf" id="wam-zU-Juk"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="fyJ-jz-rBR"/>
+                    <navigationItem key="navigationItem" id="fyJ-jz-rBR">
+                        <nil key="title"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="segmentedControl" destination="3np-uk-P3e" id="Tcr-1A-BEI"/>
                         <segue destination="jff-Mj-vg9" kind="show" identifier="detailPage" id="ims-vN-XZO"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QO9-eh-zmW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="b3t-Ys-hOA">
+                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="33"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <segments>
+                        <segment title="First"/>
+                        <segment title="Second"/>
+                        <segment title=""/>
+                    </segments>
+                </segmentedControl>
             </objects>
             <point key="canvasLocation" x="768.79999999999995" y="114.69265367316342"/>
         </scene>

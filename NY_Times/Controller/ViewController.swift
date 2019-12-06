@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UITableViewController {
 
+    @IBOutlet var segmentedControl: UISegmentedControl!
        var rootArray : NSMutableArray! = nil
        var imageCache = NSMutableDictionary()
        var resultDetail : Result!
@@ -20,13 +21,28 @@ class ViewController: UITableViewController {
            tableView.estimatedRowHeight = 200
            tableView.rowHeight = UITableView.automaticDimension
            self.tableView.tableFooterView = UIView()
-           
-           self.fetchData()
+           segmentedControl.selectedSegmentIndex = 0
+           fetchData()
        }
+    
+    @IBAction func segmentedControlButtonClickAction(_ sender: UISegmentedControl) {
+       fetchData()
+    }
        
     // API Calling Function
-       func fetchData() {
+    func fetchData() {
            
+        //get the segment values
+        var forDays = ""
+        if segmentedControl.selectedSegmentIndex == 0 {
+            forDays = "1"
+        } else if segmentedControl.selectedSegmentIndex == 1 {
+             forDays = "7"
+        } else if segmentedControl.selectedSegmentIndex == 2 {
+             forDays = "30"
+        }
+        
+        let popularArticals = "mostpopular/v2/viewed/\(forDays).json?api-key=\(apiKey)"
         //Url String for creating a request
            let urlString = baseURLString + popularArticals
            
@@ -133,6 +149,7 @@ class ViewController: UITableViewController {
           self.performSegue(withIdentifier: "detailPage", sender: self)
            
        }
+
        
        //Seue for next view controller
        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
